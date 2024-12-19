@@ -6,14 +6,15 @@ class Person:
         self.age = age
         Person.people[self.name] = self
 
+
 def create_person_list(people: list) -> list:
-    persons = [Person(p["name"], p["age"]) for p in people]
+    persons = [Person(person_data["name"], person_data["age"]) for person_data in people]
 
-    for p in people:
-        if "wife" in p and p["wife"] is not None:
-            Person.people[p["name"]].wife = Person.people[p["wife"]]
+    for person_data in people:
+        if "wife" in person_data and person_data["wife"] is not None:
+            Person.people[person_data["name"]].wife = Person.people[person_data["wife"]]
 
-        if "husband" in p and p["husband"] is not None:
-            Person.people[p["name"]].husband = Person.people[p["husband"]]
+        if "husband" in person_data and person_data["husband"] is not None:
+            Person.people[person_data["name"]].husband = Person.people[person_data["husband"]]
 
     return persons
