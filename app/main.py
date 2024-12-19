@@ -10,11 +10,11 @@ class Person:
 def create_person_list(people: list) -> list:
     persons = [Person(pers["name"], pers["age"]) for pers in people]
 
-    for pers in people:
-        if "wife" in pers and pers["wife"] is not None:
-            Person.people[pers["name"]].wife = Person.people[pers["wife"]]
+    for per in people:
+        if "wife" in per and per["wife"] is not None:
+            Person.people[per["name"]].wife = Person.people[per["wife"]]
 
-        if "husband" in pers and pers["husband"] is not None:
-            Person.people[pers["name"]].husband = Person.people[pers["husband"]]
+        if "husband" in per and per["husband"] is not None:
+            Person.people[per["name"]].husband = Person.people[per["husband"]]
 
     return persons
